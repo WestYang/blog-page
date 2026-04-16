@@ -1,0 +1,16 @@
+---
+layout: default
+---
+
+<div class="post-content">
+  <span class="post-meta">{{ page.date | date: "%Y年%m月%d日" }}</span>
+  {% if page.categories %}
+    <span class="post-meta">
+      分类: {% for category in page.categories %}{{ category }}{% if forloop.last == false %}, {% endif %}{% endfor %}
+    </span>
+  {% endif %}
+  
+  <div class="post-body">
+    {{ content }}
+  </div>
+</div>

@@ -1,0 +1,19 @@
+# 配置 GitLab CI/CD 以自动部署 Jekyll 博客到 GitLab Pages
+
+image: ruby:3.3
+
+pages:
+  script:
+    # 👇 关键：替换为淘宝 Ruby 源，解决国内网络慢
+    - gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/
+    - gem sources -l  # 验证源是否替换成功
+    - gem install bundler
+    # 👇 bundle 也换国内源，加速安装
+    - bundle config mirror.https://rubygems.org https://gems.ruby-china.com
+    - bundle install --jobs 4  # --jobs 多线程加速
+    - bundle exec jekyll build -d public
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH

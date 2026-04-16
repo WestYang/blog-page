@@ -1,0 +1,73 @@
+---
+layout: default
+title: 搜索
+---
+
+<div class="search-page">
+  <h1>搜索</h1>
+  <div class="search-container">
+    <input type="text" id="search-input" placeholder="输入关键词搜索...">
+    <button id="search-button">搜索</button>
+  </div>
+  <div id="search-results"></div>
+</div>
+
+<script>
+// 搜索功能实现
+const searchInput = document.getElementById('search-input');
+const searchButton = document.getElementById('search-button');
+const searchResults = document.getElementById('search-results');
+
+// 文章数据
+const posts = [
+  {% for post in site.posts %}
+    {
+      title: "{{ post.title }}",
+      url: "{{ post.url | prepend: site.baseurl }}",
+      date: "{{ post.date | date: '%Y年%m月%d日' }}",
+      categories: [{% for category in post.categories %}'{{ category }}'{% if forloop.last == false %}, {% endif %}{% endfor %}],
+      content: "{{ post.content | strip_html | strip_newlines | escape }}"
+    }{% if forloop.last == false %},{% endif %}
+  {% endfor %}
+];
+
+// 搜索函数
+function search() {
+  const query = searchInput.value.toLowerCase().trim();
+  if (!query) {
+    searchResults.innerHTML = '<p>请输入搜索关键词</p>';
+    return;
+  }
+
+  const results = posts.filter(post => {
+    return (
+      post.title.toLowerCase().includes(query) ||
+      post.content.toLowerCase().includes(query) ||
+      post.categories.some(category => category.toLowerCase().includes(query))
+    );
+  });
+
+  if (results.length === 0) {
+    searchResults.innerHTML = '<p>未找到相关内容</p>';
+  } else {
+    const resultsHTML = results.map(post => {
+      return `
+        <div class="search-result">
+          <h3><a href="${post.url}">${post.title}</a></h3>
+          <p class="result-meta">${post.date} | 分类: ${post.categories.join(', ')}</p>
+          <p class="result-excerpt">${post.content.substring(0, 150)}${post.content.length > 150 ? '...' : ''}</p>
+        </div>
+      `;
+    }).join('');
+    searchResults.innerHTML = resultsHTML;
+  }
+}
+
+// 事件监听
+searchButton.addEventListener('click', search);
+searchInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    search();
+  }
+});
+</script>

@@ -1,0 +1,40 @@
+# 博客配置
+name: 个人博客
+description: 我的个人技术博客
+url: https://ys-gitlab-page.leadintelligent.com
+baseurl: "/45505/test-blog"
+
+# 作者信息
+author:
+  name: 博主
+  email: your-email@example.com
+  github: your-github-username
+
+# 构建设置
+markdown: kramdown
+highlighter: rouge
+
+# 主题
+theme: minima
+
+# 插件
+gems:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# 分页
+paginate: 5
+paginate_path: "page:num"
+
+# 导航菜单
+nav_menu:
+  - name: 首页
+    url: /
+  - name: 关于
+    url: /about/
+  - name: 归档
+    url: /archive/
+  - name: 文档
+    url: /documents/
+  - name: 搜索
+    url: /search/
