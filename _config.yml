@@ -1,14 +1,14 @@
 # 博客配置
 name: 个人博客
 description: 我的个人技术博客
-url: https://sensen199632.gitlab.io
+url: https://westyang.github.io
 baseurl: "/blog-page"
 
 # 作者信息
 author:
   name: 博主
   email: your-email@example.com
-  github: your-github-username
+  github: westyang
 
 # 构建设置
 markdown: kramdown

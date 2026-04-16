@@ -16,9 +16,9 @@ permalink: /about/
 
 ## 联系方式
 
-- GitHub: [your-github-username](https://github.com/your-github-username)
+- GitHub: [westyang](https://github.com/westyang)
 - 邮箱: your-email@example.com
 
 ## 关于博客
 
-这个博客是使用 GitLab Pages 和 Jekyll 创建的，用于分享我的技术学习和项目经验。
+这个博客是使用 GitHub Pages 和 Jekyll 创建的，用于分享我的技术学习和项目经验。
