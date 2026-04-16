@@ -1,19 +1,16 @@
-# 配置 GitLab CI/CD 以自动部署 Jekyll 博客到 GitLab Pages
-
+# The Docker image that will be used to build your app
 image: ruby:3.3
-
-pages:
-  script:
-    # 👇 关键：替换为淘宝 Ruby 源，解决国内网络慢
-    - gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/
-    - gem sources -l  # 验证源是否替换成功
-    - gem install bundler
-    # 👇 bundle 也换国内源，加速安装
-    - bundle config mirror.https://rubygems.org https://gems.ruby-china.com
-    - bundle install --jobs 4  # --jobs 多线程加速
-    - bundle exec jekyll build -d public
-  artifacts:
-    paths:
-      - public
+create-pages:
+  pages:
+    # The folder that contains the files to be exposed at the Page URL
+    publish: public
   rules:
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    # This ensures that only pushes to the default branch will trigger
+    # a pages deploy
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
+  # Functions that should be executed before the build script is run
+  before_script: []
+  script:
+    - gem install bundler
+    - bundle install --jobs 4
+    - bundle exec jekyll build -d public
