@@ -1,3 +1,10 @@
+---
+layout: post
+title: Office / Visio 安装与 KMS 激活指南
+date: 2026-04-16 09:00:00 +0800
+categories: 技术指南
+---
+
 # Office / Visio 安装与 KMS 激活指南
 
 ---
