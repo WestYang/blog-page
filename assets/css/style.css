@@ -203,6 +203,37 @@ main {
   border-radius: 5px;
   overflow-x: auto;
   margin-bottom: 20px;
+  position: relative;
+}
+
+.code-copy-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.code-copy-button:hover {
+  background-color: #2980b9;
+}
+
+.code-copy-button.copied {
+  background-color: #27ae60;
+}
+
+.code-copy-button.copied::after {
+  content: '已复制!';
+}
+
+.code-copy-button::after {
+  content: '复制';
 }
 
 .post-content pre code {

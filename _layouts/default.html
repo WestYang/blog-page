@@ -32,5 +32,36 @@
       <p>{{ site.description }}</p>
     </div>
   </footer>
+
+  <script>
+    // 为每个代码块添加复制按钮
+    document.addEventListener('DOMContentLoaded', function() {
+      const codeBlocks = document.querySelectorAll('.post-content pre');
+      
+      codeBlocks.forEach(function(block) {
+        // 创建复制按钮
+        const button = document.createElement('button');
+        button.className = 'code-copy-button';
+        
+        // 添加点击事件
+        button.addEventListener('click', function() {
+          const code = block.querySelector('code');
+          const text = code.textContent;
+          
+          // 复制到剪贴板
+          navigator.clipboard.writeText(text).then(function() {
+            // 显示复制成功状态
+            button.classList.add('copied');
+            setTimeout(function() {
+              button.classList.remove('copied');
+            }, 2000);
+          });
+        });
+        
+        // 将按钮添加到代码块
+        block.appendChild(button);
+      });
+    });
+  </script>
 </body>
 </html>
