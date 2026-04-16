@@ -10,18 +10,16 @@ title: 文档
   
   <h2>文档列表</h2>
   
-  {% assign documents = site.static_files | where_exp: "file", "file.path contains '/documents/' and file.name != 'index.md'" %}
-  {% if documents.size > 0 %}
-    <ul class="document-list">
-      {% for document in documents %}
-        <li>
-          <a href="{{ document.path | prepend: site.baseurl }}" target="_blank">
-            {{ document.name }}
-          </a>
-        </li>
-      {% endfor %}
-    </ul>
-  {% else %}
-    <p>暂无文档，请上传文档到 <code>documents</code> 目录。</p>
-  {% endif %}
+  <ul class="document-list">
+    <li>
+      <a href="{{ site.baseurl }}/documents/example-document.txt" target="_blank">
+        example-document.txt
+      </a>
+    </li>
+    <li>
+      <a href="{{ site.baseurl }}/documents/example-document.md" target="_blank">
+        example-document.md
+      </a>
+    </li>
+  </ul>
 </div>
