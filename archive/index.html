@@ -6,18 +6,15 @@ title: 归档
 <div class="page-content">
   <h1>文章归档</h1>
   
-  {% for post in site.posts %}
-    {% assign currentdate = post.date | date: "%Y年%m月" %}
-    {% if currentdate != date %}
-      {% unless forloop.first %}</ul>{% endunless %}
-      <h2 id="{{ currentdate }}">{{ currentdate }}</h2>
-      <ul class="post-list">
-      {% assign date = currentdate %}
-    {% endif %}
-    <li>
-      <span class="post-meta">{{ post.date | date: "%d日" }}</span>
-      <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-    </li>
-    {% if forloop.last %}</ul>{% endif %}
-  {% endfor %}
+  <h2>2026年04月</h2>
+  <ul class="post-list">
+    {% for post in site.posts %}
+      {% if post.date | date: "%Y年%m月" == "2026年04月" %}
+        <li>
+          <span class="post-meta">{{ post.date | date: "%d日" }}</span>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
 </div>
