@@ -1,8 +1,8 @@
 # 博客配置
 name: 个人博客
 description: 我的个人技术博客
-url: https://ys-gitlab-page.leadintelligent.com
-baseurl: "/45505/test-blog"
+url: https://sensen199632.gitlab.io
+baseurl: "/blog-page"
 
 # 作者信息
 author:
