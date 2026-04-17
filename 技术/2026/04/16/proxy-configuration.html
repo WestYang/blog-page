@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>网络代理配置指南 - 个人博客</title>
+  <meta name="description" content="我的个人技术博客">
+  <link rel="stylesheet" href="/blog-page/assets/css/style.css">
+  <link rel="alternate" type="application/rss+xml" title="个人博客" href="/blog-page/feed.xml">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title"><a href="/blog-page">个人博客</a></h1>
+      <nav class="site-nav">
+        <ul>
+          
+            <li><a href="/blog-page/">首页</a></li>
+          
+            <li><a href="/blog-page/about/">关于</a></li>
+          
+            <li><a href="/blog-page/archive/">归档</a></li>
+          
+            <li><a href="/blog-page/documents/">文档</a></li>
+          
+            <li><a href="/blog-page/search/">搜索</a></li>
+          
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="post-content">
+  <h1>网络代理配置指南</h1>
+  <span class="post-meta">2026年04月16日</span>
+  
+    <span class="post-meta">
+      分类: 技术
+    </span>
+  
+  
+  <div class="post-body">
+    <h1 id="网络代理配置指南">网络代理配置指南</h1>
+
+<p>本文介绍在不同环境下配置代理的方法，包括yum、docker和pip的代理设置。</p>
+
+<h2 id="1yum配置代理">1、yum配置代理</h2>
+
+<p>编辑yum配置文件：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># vim /etc/yum.conf</span>
+<span class="c"># 加入下面一行代理配置</span>
+<span class="nv">proxy</span><span class="o">=</span> http://10.33.49.191:10809
+</code></pre></div></div>
+
+<h2 id="2docker-配置代理">2、docker 配置代理</h2>
+
+<p>创建docker服务目录并配置代理：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo mkdir</span> <span class="nt">-p</span> /etc/systemd/system/docker.service.d
+vim /etc/systemd/system/docker.service.d/http-proxy.conf    
+<span class="c">#添加代理配置</span>
+<span class="o">[</span>Service]
+<span class="nv">Environment</span><span class="o">=</span><span class="s2">"HTTP_PROXY=http://your-proxy-server:port/"</span>
+<span class="nv">Environment</span><span class="o">=</span><span class="s2">"HTTPS_PROXY=https://your-proxy-server:port/"</span>
+<span class="nv">Environment</span><span class="o">=</span><span class="s2">"NO_PROXY=localhost,127.0.0.1,.example.com"</span>
+</code></pre></div></div>
+
+<h2 id="3pip配置代理和源">3、pip配置代理和源</h2>
+
+<p>设置pip的代理和镜像源：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip config <span class="nb">set </span>global.proxy http://10.100.28.114:3180
+pip config <span class="nb">set </span>global.index-url https://mirrors.ustc.edu.cn/pypi/simple
+pip config <span class="nb">set </span>global.trusted-host mirrors.ustc.edu.cn
+</code></pre></div></div>
+
+<h2 id="总结">总结</h2>
+
+<p>以上配置方法可以帮助您在不同的环境中设置代理，确保网络访问的顺畅。根据您的实际网络环境，替换相应的代理服务器地址和端口即可。</p>
+
+  </div>
+</div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 博主</p>
+      <p>我的个人技术博客</p>
+    </div>
+  </footer>
+
+  <script>
+    // 为每个代码块添加复制按钮
+    document.addEventListener('DOMContentLoaded', function() {
+      const codeBlocks = document.querySelectorAll('.post-content pre');
+      
+      codeBlocks.forEach(function(block) {
+        // 创建复制按钮
+        const button = document.createElement('button');
+        button.className = 'code-copy-button';
+        
+        // 添加点击事件
+        button.addEventListener('click', function() {
+          const code = block.querySelector('code');
+          const text = code.textContent;
+          
+          // 复制到剪贴板
+          navigator.clipboard.writeText(text).then(function() {
+            // 显示复制成功状态
+            button.classList.add('copied');
+            setTimeout(function() {
+              button.classList.remove('copied');
+            }, 2000);
+          });
+        });
+        
+        // 将按钮添加到代码块
+        block.appendChild(button);
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文档 - 个人博客</title>
+  <meta name="description" content="我的个人技术博客">
+  <link rel="stylesheet" href="/blog-page/assets/css/style.css">
+  <link rel="alternate" type="application/rss+xml" title="个人博客" href="/blog-page/feed.xml">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title"><a href="/blog-page">个人博客</a></h1>
+      <nav class="site-nav">
+        <ul>
+          
+            <li><a href="/blog-page/">首页</a></li>
+          
+            <li><a href="/blog-page/about/">关于</a></li>
+          
+            <li><a href="/blog-page/archive/">归档</a></li>
+          
+            <li><a href="/blog-page/documents/">文档</a></li>
+          
+            <li><a href="/blog-page/search/">搜索</a></li>
+          
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="page-content">
+  <h1>文档中心</h1>
+  
+  <p>这里存放了各种技术文档和资源，欢迎下载使用。</p>
+  
+  <h2>文档列表</h2>
+  
+  <ul class="document-list">
+    <li>
+      <a href="/blog-page/documents/example-document.txt" target="_blank">
+        example-document.txt
+      </a>
+    </li>
+    <li>
+      <a href="/blog-page/documents/example-document.md" target="_blank">
+        example-document.md
+      </a>
+    </li>
+  </ul>
+</div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 博主</p>
+      <p>我的个人技术博客</p>
+    </div>
+  </footer>
+
+  <script>
+    // 为每个代码块添加复制按钮
+    document.addEventListener('DOMContentLoaded', function() {
+      const codeBlocks = document.querySelectorAll('.post-content pre');
+      
+      codeBlocks.forEach(function(block) {
+        // 创建复制按钮
+        const button = document.createElement('button');
+        button.className = 'code-copy-button';
+        
+        // 添加点击事件
+        button.addEventListener('click', function() {
+          const code = block.querySelector('code');
+          const text = code.textContent;
+          
+          // 复制到剪贴板
+          navigator.clipboard.writeText(text).then(function() {
+            // 显示复制成功状态
+            button.classList.add('copied');
+            setTimeout(function() {
+              button.classList.remove('copied');
+            }, 2000);
+          });
+        });
+        
+        // 将按钮添加到代码块
+        block.appendChild(button);
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Office / Visio 安装与 KMS 激活指南 - 个人博客</title>
+  <meta name="description" content="我的个人技术博客">
+  <link rel="stylesheet" href="/blog-page/assets/css/style.css">
+  <link rel="alternate" type="application/rss+xml" title="个人博客" href="/blog-page/feed.xml">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title"><a href="/blog-page">个人博客</a></h1>
+      <nav class="site-nav">
+        <ul>
+          
+            <li><a href="/blog-page/">首页</a></li>
+          
+            <li><a href="/blog-page/about/">关于</a></li>
+          
+            <li><a href="/blog-page/archive/">归档</a></li>
+          
+            <li><a href="/blog-page/documents/">文档</a></li>
+          
+            <li><a href="/blog-page/search/">搜索</a></li>
+          
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="post-content">
+  <h1>Office / Visio 安装与 KMS 激活指南</h1>
+  <span class="post-meta">2026年04月16日</span>
+  
+    <span class="post-meta">
+      分类: 技术指南
+    </span>
+  
+  
+  <div class="post-body">
+    <h1 id="office--visio-安装与-kms-激活指南">Office / Visio 安装与 KMS 激活指南</h1>
+
+<hr />
+
+<h2 id="一下载镜像">一、下载镜像</h2>
+
+<h3 id="office">Office</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://officecdn.microsoft.com/pr/492350f6-3a01-4f97-b9c0-c7c6ddf67d60/media/zh-cn/ProPlus2021Retail.img
+https://officecdn.microsoft.com/pr/492350f6-3a01-4f97-b9c0-c7c6ddf67d60/media/zh-cn/ProPlus2024Retail.img
+</code></pre></div></div>
+
+<h3 id="visio">Visio</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://officecdn.microsoft.com/pr/492350f6-3a01-4f97-b9c0-c7c6ddf67d60/media/zh-cn/VisioPro2021Retail.img
+https://officecdn.microsoft.com/pr/492350f6-3a01-4f97-b9c0-c7c6ddf67d60/media/zh-cn/VisioPro2024Retail.img
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="二安装镜像">二、安装镜像</h2>
+
+<p>下载完成后，挂载 <code class="language-plaintext highlighter-rouge">.img</code> 镜像并执行安装程序。</p>
+
+<hr />
+
+<h2 id="三更改-office-license">三、更改 Office License</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> <span class="s2">"C:</span><span class="se">\P</span><span class="s2">rogram Files</span><span class="se">\M</span><span class="s2">icrosoft Office</span><span class="se">\O</span><span class="s2">ffice*"</span>
+</code></pre></div></div>
+
+<h3 id="office-1">Office</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> /f %x <span class="k">in</span> <span class="o">(</span><span class="s1">'dir /b ..\root\Licenses16\ProPlus2021VL_KMS*.xrm-ms'</span><span class="o">)</span> <span class="k">do </span>cscript ospp.vbs /inslic:<span class="s2">"..</span><span class="se">\r</span><span class="s2">oot</span><span class="se">\L</span><span class="s2">icenses16</span><span class="se">\%</span><span class="s2">x"</span>
+
+<span class="k">for</span> /f %x <span class="k">in</span> <span class="o">(</span><span class="s1">'dir /b ..\root\Licenses16\ProPlus2024VL_KMS*.xrm-ms'</span><span class="o">)</span> <span class="k">do </span>cscript ospp.vbs /inslic:<span class="s2">"..</span><span class="se">\r</span><span class="s2">oot</span><span class="se">\L</span><span class="s2">icenses16</span><span class="se">\%</span><span class="s2">x"</span>
+</code></pre></div></div>
+
+<h3 id="visio-1">Visio</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> /f %x <span class="k">in</span> <span class="o">(</span><span class="s1">'dir /b ..\root\Licenses16\VisioPro2021VL_KMS*.xrm-ms'</span><span class="o">)</span> <span class="k">do </span>cscript ospp.vbs /inslic:<span class="s2">"..</span><span class="se">\r</span><span class="s2">oot</span><span class="se">\L</span><span class="s2">icenses16</span><span class="se">\%</span><span class="s2">x"</span>
+
+<span class="k">for</span> /f %x <span class="k">in</span> <span class="o">(</span><span class="s1">'dir /b ..\root\Licenses16\VisioPro2024VL_KMS*.xrm-ms'</span><span class="o">)</span> <span class="k">do </span>cscript ospp.vbs /inslic:<span class="s2">"..</span><span class="se">\r</span><span class="s2">oot</span><span class="se">\L</span><span class="s2">icenses16</span><span class="se">\%</span><span class="s2">x"</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="四kms-命令激活">四、KMS 命令激活</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> <span class="s2">"C:</span><span class="se">\P</span><span class="s2">rogram Files</span><span class="se">\M</span><span class="s2">icrosoft Office</span><span class="se">\O</span><span class="s2">ffice*"</span>
+
+cscript ospp.vbs /inpkey:XJ2XN-FW8RK-P4HMP-DKDBV-GCVGB
+cscript ospp.vbs /inpkey:B7TN8-FJ8V3-7QYCP-HQPMV-YY89G
+
+cscript ospp.vbs /sethst:s1.kms.cx
+cscript ospp.vbs /act
+
+cscript ospp.vbs /dstatus    <span class="c"># 查看激活状态</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="五gvlk-密钥列表">五、GVLK 密钥列表</h2>
+
+<h3 id="office-ltsc-2021">Office LTSC 2021</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>产品</th>
+      <th>Key</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Office LTSC 专业增强版 2021</td>
+      <td>FXYTK-NJJ8C-GB6DW-3DYQT-6F7TH</td>
+    </tr>
+    <tr>
+      <td>Office LTSC 标准版 2021</td>
+      <td>KDX7X-BNVR8-TXXGX-4Q7Y8-78VT3</td>
+    </tr>
+    <tr>
+      <td>Project Professional 2021</td>
+      <td>FTNWT-C6WBT-8HMGF-K9PRX-QV9H8</td>
+    </tr>
+    <tr>
+      <td>Project Standard 2021</td>
+      <td>J2JDC-NJCYY-9RGQ4-YXWMH-T3D4T</td>
+    </tr>
+    <tr>
+      <td>Visio LTSC Professional 2021</td>
+      <td>KNH8D-FGHT4-T8RK3-CTDYJ-K2HT4</td>
+    </tr>
+    <tr>
+      <td>Visio LTSC Standard 2021</td>
+      <td>MJVNY-BYWPY-CWV6J-2RKRT-4M8QG</td>
+    </tr>
+    <tr>
+      <td>Access LTSC 2021</td>
+      <td>WM8YG-YNGDD-4JHDC-PG3F4-FC4T4</td>
+    </tr>
+    <tr>
+      <td>Excel LTSC 2021</td>
+      <td>NWG3X-87C9K-TC7YY-BC2G7-G6RVC</td>
+    </tr>
+    <tr>
+      <td>Outlook LTSC 2021</td>
+      <td>C9FM6-3N72F-HFJXB-TM3V9-T86R9</td>
+    </tr>
+    <tr>
+      <td>PowerPoint LTSC 2021</td>
+      <td>TY7XF-NFRBR-KJ44C-G83KF-GX27K</td>
+    </tr>
+    <tr>
+      <td>Publisher LTSC 2021</td>
+      <td>2MW9D-N4BXM-9VBPG-Q7W6M-KFBGQ</td>
+    </tr>
+    <tr>
+      <td>Skype for Business LTSC 2021</td>
+      <td>HWCXN-K3WBT-WJBKY-R8BD9-XK29P</td>
+    </tr>
+    <tr>
+      <td>Word LTSC 2021</td>
+      <td>TN8H9-M34D3-Y64V9-TR72V-X79KV</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h3 id="office-ltsc-2024">Office LTSC 2024</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>产品</th>
+      <th>Key</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Office LTSC Professional Plus 2024</td>
+      <td>XJ2XN-FW8RK-P4HMP-DKDBV-GCVGB</td>
+    </tr>
+    <tr>
+      <td>Office LTSC Standard 2024</td>
+      <td>V28N4-JG22K-W66P8-VTMGK-H6HGR</td>
+    </tr>
+    <tr>
+      <td>Project Professional 2024</td>
+      <td>FQQ23-N4YCY-73HQ3-FM9WC-76HF4</td>
+    </tr>
+    <tr>
+      <td>Project Standard 2024</td>
+      <td>PD3TT-NTHQQ-VC7CY-MFXK3-G87F8</td>
+    </tr>
+    <tr>
+      <td>Visio LTSC Professional 2024</td>
+      <td>B7TN8-FJ8V3-7QYCP-HQPMV-YY89G</td>
+    </tr>
+    <tr>
+      <td>Visio LTSC Standard 2024</td>
+      <td>JMMVY-XFNQC-KK4HK-9H7R3-WQQTV</td>
+    </tr>
+    <tr>
+      <td>Access LTSC 2024</td>
+      <td>82FTR-NCHR7-W3944-MGRHM-JMCWD</td>
+    </tr>
+    <tr>
+      <td>Excel LTSC 2024</td>
+      <td>F4DYN-89BP2-WQTWJ-GR8YC-CKGJG</td>
+    </tr>
+    <tr>
+      <td>Outlook LTSC 2024</td>
+      <td>D2F8D-N3Q3B-J28PV-X27HD-RJWB9</td>
+    </tr>
+    <tr>
+      <td>PowerPoint LTSC 2024</td>
+      <td>CW94N-K6GJH-9CTXY-MG2VC-FYCWP</td>
+    </tr>
+    <tr>
+      <td>Skype for Business LTSC 2024</td>
+      <td>4NKHF-9HBQF-Q3B6C-7YV34-F64P3</td>
+    </tr>
+    <tr>
+      <td>Word LTSC 2024</td>
+      <td>MQ84N-7VYDM-FXV7C-6K7CC-VFW9J</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="备注">备注</h2>
+
+<ul>
+  <li>请确保使用合法授权环境。</li>
+  <li>KMS 服务器需可访问，否则激活会失败。</li>
+  <li>建议企业环境中使用内部 KMS 服务。</li>
+</ul>
+
+
+  </div>
+</div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 博主</p>
+      <p>我的个人技术博客</p>
+    </div>
+  </footer>
+
+  <script>
+    // 为每个代码块添加复制按钮
+    document.addEventListener('DOMContentLoaded', function() {
+      const codeBlocks = document.querySelectorAll('.post-content pre');
+      
+      codeBlocks.forEach(function(block) {
+        // 创建复制按钮
+        const button = document.createElement('button');
+        button.className = 'code-copy-button';
+        
+        // 添加点击事件
+        button.addEventListener('click', function() {
+          const code = block.querySelector('code');
+          const text = code.textContent;
+          
+          // 复制到剪贴板
+          navigator.clipboard.writeText(text).then(function() {
+            // 显示复制成功状态
+            button.classList.add('copied');
+            setTimeout(function() {
+              button.classList.remove('copied');
+            }, 2000);
+          });
+        });
+        
+        // 将按钮添加到代码块
+        block.appendChild(button);
+      });
+    });
+  </script>
+</body>
+</html>
